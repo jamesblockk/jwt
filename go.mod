@@ -1,4 +1,4 @@
-module jwt
+module github.com/jamesblockk/jwt
 
 go 1.12
 
