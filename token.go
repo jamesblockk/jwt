@@ -14,7 +14,7 @@ var _expireSecond time.Duration
 
 // Default Setup
 func init() {
-	Setup("123456", 60)
+	Setup("123456", 600)
 }
 
 // Setup : privatte key , and expire second
@@ -31,8 +31,7 @@ func Build(in map[string]string) (token string, err error) {
 		claims[k] = v
 	}
 
-	token := jwtgo.NewWithClaims(jwtgo.SigningMethodHS256, claims)
-	return token.SignedString(_signingKey)
+	return jwtgo.NewWithClaims(jwtgo.SigningMethodHS256, claims).SignedString(_signingKey)
 }
 
 // Verify ...
